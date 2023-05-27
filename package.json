@@ -6,12 +6,10 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "saved": "node ./bin/save.js",
+    "product:save": "node save.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-    "hello": "./bin/index.js"
-  },
+  "bin": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
