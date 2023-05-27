@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema({
   name: {
-    typ: Schema.Types.String,
+    type: Schema.Types.String,
     required: true,
   },
   price: {
-    typ: Schema.Types.Number,
+    type: Schema.Types.Number,
     required: true,
   },
   id: {
@@ -16,3 +16,7 @@ const productSchema = new Schema({
     required: true,
   },
 });
+
+const Product = mongoose.model("Product", productSchema);
+
+export default Product;
