@@ -9,7 +9,7 @@ import prompt from "prompt";
 dotenv.config();
 connectToMongo();
 
-async function saveProduct(productName, productPrice, productId) {
+/*async function saveProduct(productName, productPrice, productId) {
   try {
     const newProduct = new Product({
       id: productId,
@@ -19,6 +19,32 @@ async function saveProduct(productName, productPrice, productId) {
 
     await newProduct.save();
     console.log("Product saved successfully");
+  } catch (error) {
+    console.error("Failed to save product:", error);
+  } finally {
+    mongoose.connection.close();
+  }
+}*/
+
+async function saveProduct(productName, productPrice, productId) {
+  try {
+    let existingProduct = await Product.findOne({ id: productId });
+
+    if (existingProduct) {
+      existingProduct.name = productName;
+      existingProduct.price = productPrice;
+      await existingProduct.save();
+      console.log("Product updated successfully");
+    } else {
+      const newProduct = new Product({
+        id: productId,
+        name: productName,
+        price: productPrice,
+      });
+
+      await newProduct.save();
+      console.log("New product saved successfully");
+    }
   } catch (error) {
     console.error("Failed to save product:", error);
   } finally {

@@ -15,6 +15,15 @@ const productSchema = new Schema({
     type: Schema.Types.Number,
     required: true,
   },
+  purchaseQuantity: {
+    type: Schema.Types.Number,
+  },
+  purchasePrice: {
+    type: Schema.Types.Number,
+  },
+  orderQuantity: {
+    type: Schema.Types.Number,
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);

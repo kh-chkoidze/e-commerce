@@ -7,6 +7,9 @@
   "scripts": {
     "start": "node index.js",
     "product:save": "node save.js",
+    "product:purchase": "node purchase.js",
+    "product:order": "node order.js",
+    "product:get-quantity":"node quantity.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {},
