@@ -12,9 +12,22 @@ async function addPropertyToProduct(productId) {
   try {
     const result = await Product.findOne({ id: productId });
 
+    if (result.purchaseQuantity.length === 0) {
+      console.log(`No products found with product ID ${productId}`);
+      return;
+    }
+
     if (result) {
       totalQuantity =
-        totalQuantity + result.purchaseQuantity - result.orderQuantity;
+        totalQuantity +
+        result.purchaseQuantity.reduce(
+          (accumulator, currentValue) => accumulator + Number(currentValue),
+          0
+        ) -
+        result.orderQuantity.reduce(
+          (accumulator, currentValue) => accumulator + Number(currentValue),
+          0
+        );
 
       console.log(totalQuantity);
       return totalQuantity;
