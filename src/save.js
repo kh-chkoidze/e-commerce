@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 
-import connectToMongo from "./config/mongo.js";
+import connectToMongo from "../config/mongo.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Product from "./models/product.js";
+import Product from "../models/product.js";
 import prompt from "prompt";
 
 dotenv.config();

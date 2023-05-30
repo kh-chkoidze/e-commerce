@@ -16,13 +16,13 @@ const productSchema = new Schema({
     required: true,
   },
   purchaseQuantity: {
-    type: Schema.Types.Number,
+    type: Schema.Types.Array,
   },
   purchasePrice: {
-    type: Schema.Types.Number,
+    type: Schema.Types.Array,
   },
   orderQuantity: {
-    type: Schema.Types.Number,
+    type: Schema.Types.Array,
   },
 });
 

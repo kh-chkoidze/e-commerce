@@ -6,10 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "product:save": "node save.js",
-    "product:purchase": "node purchase.js",
-    "product:order": "node order.js",
-    "product:get-quantity":"node quantity.js",
+    "product:save": "node src/save.js",
+    "product:purchase": "node src/purchase.js",
+    "product:order": "node src/order.js",
+    "product:get-quantity": "node src/quantity.js",
+    "product:average-price": "node src/average-price.js",
+    "product:profit": "node src/profit.js",
+    "product:fewest": "node src/fewest.js",
+    "product:popular": "node src/popular",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {},

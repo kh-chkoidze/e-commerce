@@ -1,7 +1,7 @@
-import connectToMongo from "./config/mongo.js";
+import connectToMongo from "../config/mongo.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Product from "./models/product.js";
+import Product from "../models/product.js";
 import prompt from "prompt";
 
 dotenv.config();
@@ -16,8 +16,10 @@ async function addPropertyToProduct(
     const result = await Product.updateOne(
       { id: productId },
       {
-        purchaseQuantity: purchaseQuantity,
-        purchasePrice: purchasePrice,
+        $push: {
+          purchaseQuantity: purchaseQuantity,
+          purchasePrice: purchasePrice,
+        },
       }
     );
 
